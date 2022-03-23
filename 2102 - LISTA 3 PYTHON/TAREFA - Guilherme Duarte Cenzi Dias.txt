@@ -1,0 +1,231 @@
+'''
+Dizemos que um número natural é triangular se ele é produto de três números naturais
+consecutivos. Exemplo: 120 é triangular, pois 4.5.6 = 120. Dado um inteiro não-negativo n,
+verificar se n é triangular.
+'''
+continuar = ''
+while(continuar != 'N'):
+    num = int(input('Insira N:'))
+    cotador = num
+    while(cotador >= 0):
+        if((cotador) * (cotador - 1) * (cotador - 2) == num):
+            print('é triangular!')
+            continuar = input('Deseja Continuar? Digite N para parar!')
+            break
+        else:
+            cotador = cotador - 1
+        if(cotador == 0):
+            print('Não é triangular')
+            continuar = input('Deseja Continuar? Digite N para parar!')
+            break
+
+
+'''
+Indique como um troco deve ser dado utilizando-se um número mínimo de notas. Seu
+algoritmo deve ler o valor da conta a ser paga e o valor do pagamento efetuado desprezando
+os centavos. Suponha que as notas para troco sejam as de 50, 20, 10, 5, 2 e 1 reais, e que
+nenhuma delas esteja em falta no caixa.
+'''
+continuar = ''
+while(continuar != 'N'):
+    notas = [0, 0, 0, 0, 0, 0]
+    corresp = ['50', '20', '10', '5', '2', '1']
+    conta = int(input('Insira o valor da conta a ser paga: '))
+    pago =  int(input('Insira a quantia de dinheiro recebida: '))
+    troco =  pago - conta
+    if(troco>0):
+        while(troco>=50):
+            troco -= 50 
+            notas[0] += 1
+        while(troco < 50 and troco >= 20):
+            troco -= 20
+            notas[1] += 1
+        while(troco < 20 and troco >= 10):
+            troco -= 10
+            notas[2] += 1
+        while(troco < 10 and troco >= 5):
+            troco -= 5
+            notas[3] += 1
+        while(troco < 5 and troco >= 2):
+            troco -= 2
+            notas[4] += 1
+        while(troco < 2 and troco >= 1):
+            troco -= 1
+            notas[5] += 1
+    if(troco == 0):
+        print('\nVocê dará de troco:')
+        for i in range(6):
+            print(notas[i], ' notas de ', corresp[i])
+    elif (troco == 0):
+        print(troco)
+        print('Não há troco!')
+    elif(troco < 0):
+        print('Faltam R$ ', troco *(-1))
+
+    continuar = input('\nDeseja Continuar?\nSe Sim aperte enter\nSe Não aperte N.\n')
+
+
+'''
+Verifique se um inteiro positivo n é primo.
+'''
+continuar = ''
+while (continuar != 'N'):
+    n = int(input('Insira o Número:\n'))
+    contador = [n, 0]
+    while (contador[0] > 0):
+        contar = n % contador[0]
+        if(contar == 0):
+            contador[1] += 1
+            contador[0] -= 1
+        else:
+            contador[0] -= 1
+    if(contador[0] == 0):
+        if(contador[1] == 2):
+            print('Primo')
+        else:
+            print('Não é Primo')
+            
+    continuar = input('\nDeseja Continuar?\nAperte enter para sim\nAperte N para não\n')
+    
+
+
+'''
+Dado um número inteiro positivo, determine a sua decomposição em fatores primos
+calculando também a multiplicidade de cada fator.
+'''
+
+
+continuar = ''
+
+while(continuar != 'N'):
+    Npos = int(input('Numero: \n'))
+    for k in range(2, Npos):
+        while(Npos%k == 0):
+            print(k)
+            Npos = Npos / k
+    continuar = input('Deseja Continuar?\nenter para continuar\nN para parar\n')
+
+'''
+Faça um programa que peça um inteiro positivo e o mostre invertido. Ex.: 1234 gera 4321
+'''
+
+
+continuar = ''
+
+while(continuar != 'N'):
+    final = ''
+    Npos = str(input('Numero: \n'))
+    for c in range(1, len(str(Npos))+1):
+        f = Npos[-c]
+        final += f
+    print(final)
+    continuar = input('Deseja Continuar?\nenter para continuar\nN para parar\n')
+
+
+'''
+Faça um programa que peça uma nota, entre zero e dez. Mostre uma mensagem caso o valor
+seja inválido e continue pedindo até que o usuário informe um valor válido.
+'''
+def isnumber(value):
+    try:
+         float(value)
+    except ValueError:
+         return False
+    return True
+
+cont = ''
+while(cont != 'N'):
+    val = input('Insira valor entre 0 e 10:\n')
+    if(isnumber(val)):
+        if( int(val)<= 10 and int(val) >= 0 ):
+            print('sua notaa: ', val)
+            cont = input('Deseja continuar?\nenter para sim e\nN para não.\n')
+        else:
+            print('Tente novamente!!!')
+    else:
+        print('Tem que ser um numero!')
+    
+
+
+
+'''
+Faça um programa que leia um nome de usuário e a sua senha e não aceite a senha igual ao
+nome do usuário, mostrando uma mensagem de erro e voltando a pedir as informações.
+'''
+
+cont = ''
+while(cont != 'N'):
+    user = input('Insira o nome de usuario:\n')
+    password = input('Insira a senha:\n')
+    if (user != password):
+        print('Parabens!!')
+    else:
+        print('Tente novamente!!!')
+    cont = input('enter para continuar\nN para parar!\n\n')
+
+'''
+Supondo que a população de um país A seja da ordem de 80000 habitantes com uma taxa
+anual de crescimento de 3% e que a população de B seja 200000 habitantes com uma taxa de
+crescimento de 1.5%. Faça um programa que calcule e escreva o número de anos
+necessários para que a população do país A ultrapasse ou iguale a população do país B,
+mantidas as taxas de crescimento
+'''
+cont = ''
+while(cont != 'N'):
+    pa = [0, 0, 0]
+    pb = [0, 0, 0]
+    anos = 0
+    # POP -- PORC -- CALC/NVPOP -- ANOS
+    pa[0] = float(input('Insira a População atual de A:\n'))
+    pb[0] = float(input('Insira a População atual de B:\n'))
+    pa[1] = float(input('Insira o Crescimento atual de A:\n'))
+    pb[1] = float(input('Insira o Crescimento atual de B:\n'))
+    if(pa[1] > pb[1]):
+        while(pa[0] < pb[0]):
+            pa[0] = pa[0] * (1 + (pa[1]/100))
+            pb[0] = pb[0] * (1 + (pb[1]/100))
+            anos += 1
+        if(pa[0] >= pb[0]):
+            print('Será necessario', anos, 'anos para População A ser maior ou igual a População B.')
+            print('Em ', anos, 'anos:\n')
+            print('A População A terá aproximadamente: ', int(pa[0]), 'habitantes.')
+            print('A população B terá aproximadamente: ', int(pb[0]), 'habitantes.')
+    else:
+        print('NUNCA!')
+    cont = input('Deseja continuar?\nenter para sim e\nN para não.\n')
+
+'''
+A seqüência de Fibonacci é a seguinte: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ... Sua regra de
+formação é simples: os dois primeiros elementos são 1; a partir de então, cada elemento é a
+soma dos dois anteriores. Faça um algoritmo que leia um número inteiro calcule o seu número
+de Fibonacci. F1 = 1, F2 = 1, F3 = 2, etc.
+'''
+
+cont = ''
+while(cont != 'N'):
+    n = int(input('Insira N:\n'))
+    fib = [1, 1]
+    contador = 1
+    while(contador <= n-2):
+        fib.append(fib[-1] + fib[-2])
+        contador += 1
+    print('SEU NUM: ', fib[-1])
+    print(fib)
+    cont = input('Deseja continuar?\nenter para sim e\nN para não.\n')
+
+'''
+Dados dois números inteiros positivos, determinar o máximo divisor comum entre eles usando
+o algoritmo de Euclides.
+'''
+def euclides(a, b):
+    conta = [a, b]
+    while(conta[-1] != 0):
+        conta.append(conta[-2] % conta[-1])
+    return conta[-2]
+cont = ''
+while(cont != 'N'):
+    a = int(input('Insira Numero A:\n'))
+    b = int(input('Insira Numero B:\n'))
+    print(euclides(a, b),' é o maior divisor comum!\n')
+
+    cont = input('Deseja continuar?\nenter para sim e\nN para não.\n')

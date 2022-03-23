@@ -1,0 +1,212 @@
+# Faça um programa que peça dois números inteiros e imprima a soma desses dois números.
+
+X = 0;
+Y = 0;
+Continue = '';
+
+while(True):
+
+    
+
+    if(Continue == 'N'):
+        break
+    else:
+        X=float(input("Insira um número:"));
+        Y=float(input("insira outro número:"));
+        print(X + Y);
+        Continue = input("Deseja continuar? Digite N para parar ou aoperte enter para continuar.")
+
+
+#Escreva um programa que leia um valor em metros e o exiba convertido em milímetros.
+
+Val = 0;
+Continue = '';
+
+while(True):
+
+    
+    if(Continue == 'N'):
+        break
+    else:
+        Val = float(input("Insira um valor em metros:"));
+        print(Val*1000);
+        Continue = input("Digite N para parar!");
+
+
+#Escreva um programa que leia a quantidade de dias, horas, minutos e segundos do usuário. Calcule o total em segundos.
+
+dias = horas = minutos = segundos = 0;
+conta = [24, 60];
+Continue = '';
+
+while(True):
+
+
+    if(Continue == 'N'):
+        break
+    else:
+        dias = float(input("Insira quantos dias:"));
+        horas = float(input("Insira quantas horas:"));
+        minutos = float(input("Insira quantos minutos:"));
+        segundos = float(input("Insira quantos segundos:"));
+        conta.append((dias * conta[0] * conta[1] * conta[1]) + (horas * conta[1] * conta[1]) + (minutos * conta[1]) + segundos);
+        print(conta[2]);
+        Continue = input("Digite N para parar!");
+
+#Faça um programa que calcule o aumento de um salário. Ele deve solicitar o valor do salário e a 
+#porcentagem do aumento. Exiba o valor do aumento e do novo salário.
+
+Salario = 0;
+Pa = 0;
+Continue = '';
+
+while(True):
+
+    
+    if(Continue == 'N'):
+        break
+
+    else:       
+        Salario = float(input("Insira o salário:"));
+        Pa = float(input("insira o percentual de aumento:"));
+        print((Salario * (1 + (Pa/100))))
+        Continue = input("Digite N para parar!");
+
+
+#Solicite o preço de uma mercadoria e o percentual de desconto. Exiba o valor do desconto e o preço a pagar.
+
+Pmercad = 0;
+Percdesc = 0;
+Continue = '';
+
+while(True):
+
+
+    if(Continue == 'N'):
+        break
+    else:
+        Pmercad = float(input("Insira o valor do produto:"));
+        Percdesc = float(input("insira o percentual de desconto:"));
+        print(Pmercad * (1- (Percdesc/100)));
+        Continue = input("Digite N para parar!");
+
+
+#Calcule o tempo de uma viagem de carro. Pergunte a distância a percorrer e a velocidade média
+#esperada para a viagem.
+
+velmed = 0;
+distperc = 0;
+Continue = '';
+
+while(True):
+
+
+    if(Continue == 'N'):
+        break
+    else:
+        velmed = float(input("Insira o valor da velocidade media:"));
+        distperc = float(input("insira a distancia a percorrer em km:"));
+        print(distperc/velmed);
+        Continue = input("Digite N para parar!");
+
+
+#Converta uma temperatura digitada em Celsius para Fahrenheit. F = 9*C/5 + 32
+
+celsius = 0;
+Continue = '';
+
+while(True):
+
+
+    if(Continue == 'N'):
+        break
+    else:
+        celsius = float(input("Insira a temperatura em celsius:"));
+        print(((9*celsius)/(5))+32);
+        Continue = input("Digite N para parar!");
+
+
+#Faça agora o contrário, de Fahrenheit para Celsius.
+
+fah = 0;
+Continue = '';
+
+while(True):
+
+
+    if(Continue == 'N'):
+        break
+    else:
+        fah = float(input("Insira a temperatura em Fahrenheit:"));
+        print(((fah -32)*5)/9)
+        Continue = input("Digite N para parar!");
+
+
+#Escreva um programa que pergunte a quantidade de km percorridos por um carro alugado pelo
+#usuário, assim como a quantidade de dias pelos quais o carro foi alugado. Calcule o preço a pagar,
+#sabendo que o carro custa R$ 60,00 por dia e R$ 0,15 por km rodado
+
+dias = 0;
+km = 0;
+val = [60, 0.15]
+Continue = '';
+
+while(True):
+
+
+    if(Continue == 'N'):
+        break
+    else:
+        dias = float(input("Insira quantos dias o carro foi alugado:"));
+        km = float(input("Insira quantos km rodados:"));
+        print((dias*val[0]) + (km*val[1]))
+        Continue = input("Digite N para parar!");
+
+
+#Escreva um programa para calcular a redução do tempo de vida de um fumante. Pergunte a
+#quantidade de cigarros fumados por dia e quantos anos ele já fumou. Considere que um fumante
+#perde 10 minutos de vida a cada cigarro, calcule quantos dias de vida um fumante perderá. Exiba o
+#total de dias.
+
+anos = 0;
+cigarros = 0;
+val = [10]
+Continue = '';
+
+while(True):
+    if(Continue == 'N'):
+        break
+    else:
+        anos = float(input("Insira quantos anos fumados:"));
+        cigarros = float(input("Insira quantos cigarros por dia:"));
+        print(
+            ((anos* 365 * cigarros * val[0])/60)/24 )
+        Continue = input("Digite N para parar!");
+
+
+#Sabendo que str( ) converte valores numéricos para string, calcule quantos dígitos há em 2 elevado
+#a um milhão
+
+elev = 0;
+num = 0;
+Continue = 'Milhão';
+
+while(True):
+    if(Continue == 'N'):
+        break
+    elif(Continue == 'Milhão'):
+        elev = 1000000;
+        num = 2;
+        conta = num ** elev
+        print(
+            'O numero ', conta, 'tem ', len(str(conta)), 'digitos!'
+        )
+        Continue = input("Digite N para parar, Milhão para saber dois elevado a um milhão \n e enter para elevar outro numero.");
+    else:
+        num = int(input("Insira o numero a elevar: "));
+        elev = int(input("Insira elevado a quanto o numero vai ser: "));
+        conta = num ** elev
+        print(
+            'O numero ', conta, 'tem ', len(str(conta)), 'digitos!'
+        )
+        Continue = input("Digite N para parar!");
