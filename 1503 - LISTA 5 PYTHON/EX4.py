@@ -9,17 +9,17 @@ for u in range(18644, 33088):
     numl.append(u)
 for z in range(len(numl)):
     y = numl[z]
-        tem = 0
-        cancela = 0
-        print(y)
-        if (y == 2):
-            tem = tem + 1
-        if (y == 7):
-            cancela = cancela + 1
+    tem = 0
+    cancela = 0
+    print(y)
+    if (y == 2):
+        tem = tem + 1
+    if (y == 7):
+        cancela = cancela + 1
     if (cancela > 0):
         tem = 0
         cancela = 0
     else:
-        nums.append(i)
+        nums.append(y)
 print(len(nums))
 
